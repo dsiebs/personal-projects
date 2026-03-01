@@ -1,0 +1,13 @@
+# MLB MVP Predictor — Python dependencies
+# Install: pip install -r requirements.txt
+
+pybaseball>=0.2.0
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.12.0
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+# SHAP is optional (script runs without it; SHAP block is in try/except).
+# If install fails (e.g. llvmlite build), you can skip it or: pip install shap
+shap>=0.42.0
