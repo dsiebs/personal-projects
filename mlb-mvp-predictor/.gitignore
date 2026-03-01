@@ -14,9 +14,6 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
-# Project outputs (optional: remove if you want to commit charts)
-*.png
-
 # IDE
 .idea/
 .vscode/
