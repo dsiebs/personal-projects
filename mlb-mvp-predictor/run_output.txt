@@ -1,0 +1,189 @@
+✅ All packages loaded.
+   (XGBoost skipped — run without it; install libomp on Mac: brew install libomp)
+✅ Config set. Pulling data 2000–2024.
+
+📥 Fetching batting stats 2000–2024…
+   (pybaseball pulls from FanGraphs — may take 60–90 s first run)
+   2000: 979 players
+   2001: 972 players
+   2002: 949 players
+   2003: 967 players
+   2004: 963 players
+   2005: 941 players
+   2006: 944 players
+   2007: 951 players
+   2008: 983 players
+   2009: 950 players
+   2010: 944 players
+   2011: 934 players
+   2012: 961 players
+   2013: 948 players
+   2014: 947 players
+   2015: 964 players
+   2016: 969 players
+   2017: 957 players
+   2018: 990 players
+   2019: 990 players
+   2020: 581 players
+   2021: 1049 players
+   2022: 693 players
+   2023: 656 players
+   2024: 651 players
+
+✅ Raw dataset: 22833 rows × 320 cols
+✅ Cleaned dataset: 5812 player-seasons | 24 years
+   Leagues: {'NL': 3314, 'AL': 2498}
+✅ EDA charts rendered.
+✅ Features: 32
+   Train: 4456  |  Test: 1115
+✅ 7 models registered.
+
+🏋️  Training models…
+
+  Ridge Regression           MAE=0.0420  RMSE=0.0584  R²=0.9172  CV-R²=0.9236
+  Lasso Regression           MAE=0.0422  RMSE=0.0592  R²=0.9149  CV-R²=0.9226
+  ElasticNet                 MAE=0.0421  RMSE=0.0590  R²=0.9155  CV-R²=0.9231
+  SVR (RBF)                  MAE=0.0470  RMSE=0.0634  R²=0.9024  CV-R²=0.9084
+  Random Forest              MAE=0.0425  RMSE=0.0575  R²=0.9196  CV-R²=0.9222
+  Extra Trees                MAE=0.0424  RMSE=0.0576  R²=0.9194  CV-R²=0.9216
+  Gradient Boosting          MAE=0.0408  RMSE=0.0563  R²=0.9231  CV-R²=0.9261
+
+🏆 Best model (CV R²): Gradient Boosting
+
+✅ Selected: Gradient Boosting
+
+🔍 Computing SHAP values (may take ~30 s)…
+  SHAP skipped (No module named 'shap')
+
+============================================================
+  🏆 2024 AL MVP PREDICTIONS
+============================================================
+                 Name Team  PA  HR  RBI   R   AVG   OPS  wRC+  WAR  Pred_Norm
+            Juan Soto  NYY 713  41  109 128 0.288 0.989   181  8.3   1.000000
+          Aaron Judge  NYY 704  58  144 122 0.322 1.159   220 11.3   0.980673
+       Bobby Witt Jr.  KCR 709  32  109 125 0.332 0.977   169 10.5   0.973144
+     Gunnar Henderson  BAL 719  37   92 118 0.281 0.893   154  7.9   0.946328
+Vladimir Guerrero Jr.  TOR 697  30  103  98 0.323 0.940   164  5.3   0.846444
+         Jose Ramirez  CLE 682  39  118 114 0.279 0.872   141  6.5   0.809638
+         Jarren Duran  BOS 735  21   75 111 0.285 0.834   131  6.8   0.786080
+         Brent Rooker  OAK 614  39  112  82 0.293 0.927   164  5.1   0.785743
+       Yordan Alvarez  HOU 635  35   86  88 0.308 0.959   167  5.2   0.768144
+        Rafael Devers  BOS 601  28   83  87 0.272 0.871   136  4.2   0.637682
+
+============================================================
+  🏆 2024 NL MVP PREDICTIONS
+============================================================
+             Name Team  PA  HR  RBI   R   AVG   OPS  wRC+  WAR  Pred_Norm
+    Shohei Ohtani  LAD 731  54  130 134 0.310 1.036   180  8.9   1.000000
+ Francisco Lindor  NYM 689  33   91 107 0.273 0.844   137  7.7   0.861047
+      Ketel Marte  ARI 583  36   95  93 0.292 0.932   152  6.3   0.834291
+    Marcell Ozuna  ATL 688  39  104  96 0.302 0.925   154  4.7   0.784374
+     Bryce Harper  PHI 631  30   87  85 0.285 0.898   144  5.1   0.744205
+  Elly De La Cruz  CIN 696  25   76 105 0.259 0.809   119  6.6   0.710061
+  Jackson Merrill  SDP 593  24   90  77 0.292 0.826   130  5.3   0.684812
+William Contreras  MIL 679  23   92  99 0.281 0.831   132  5.5   0.677118
+     Matt Chapman  SFG 647  27   78  98 0.247 0.790   121  5.4   0.651257
+ Jurickson Profar  SDP 668  24   85  94 0.280 0.839   139  4.3   0.628963
+
+
+📊 Historical Validation — Model vs Actual MVP
+
+Year   League Model Pick                Actual MVP                Match
+---------------------------------------------------------------------------
+2000   AL   Alex Rodriguez            Jason Giambi              ❌
+2000   NL   Todd Helton               Jeff Kent                 ❌
+2001   AL   Jason Giambi              Ichiro Suzuki             ❌
+2001   NL   Larry Walker              Barry Bonds               ❌
+2002   AL   Alex Rodriguez            Miguel Tejada             ❌
+2002   NL   Barry Bonds               Barry Bonds               ✅
+2003   AL   Alex Rodriguez            Alex Rodriguez            ✅
+2003   NL   Barry Bonds               Barry Bonds               ✅
+2004   AL   Melvin Mora               Vladimir Guerrero         ❌
+2004   NL   Barry Bonds               Barry Bonds               ✅
+2005   AL   Alex Rodriguez            Alex Rodriguez            ✅
+2005   NL   Albert Pujols             Albert Pujols             ✅
+2006   AL   Lance Berkman             Justin Morneau            ❌
+2006   NL   Albert Pujols             Ryan Howard               ❌
+2007   AL   Alex Rodriguez            Alex Rodriguez            ✅
+2007   NL   David Wright              Jimmy Rollins             ❌
+2008   AL   Lance Berkman             Dustin Pedroia            ❌
+2008   NL   Albert Pujols             Albert Pujols             ✅
+2009   AL   Joe Mauer                 Joe Mauer                 ✅
+2009   NL   Albert Pujols             Albert Pujols             ✅
+2010   AL   Josh Hamilton             Josh Hamilton             ✅
+2010   NL   Joey Votto                Joey Votto                ✅
+2011   AL   Jose Bautista             Justin Verlander          ❌
+2011   NL   Matt Kemp                 Ryan Braun                ❌
+2012   AL   Mike Trout                Miguel Cabrera            ❌
+2012   NL   Ryan Braun                Buster Posey              ❌
+2013   AL   Miguel Cabrera            Miguel Cabrera            ✅
+2013   NL   Andrew McCutchen          Andrew McCutchen          ✅
+2014   AL   Mike Trout                Mike Trout                ✅
+2014   NL   Giancarlo Stanton         Clayton Kershaw           ❌
+2015   AL   Mike Trout                Josh Donaldson            ❌
+2015   NL   Bryce Harper              Bryce Harper              ✅
+2016   AL   Mike Trout                Mike Trout                ✅
+2016   NL   Kris Bryant               Kris Bryant               ✅
+2017   AL   Aaron Judge               José Altuve               ❌
+2017   NL   Giancarlo Stanton         Giancarlo Stanton         ✅
+2018   AL   Mookie Betts              Mookie Betts              ✅
+2018   NL   Christian Yelich          Christian Yelich          ✅
+2019   AL   Alex Bregman              Mike Trout                ❌
+2019   NL   Cody Bellinger            Cody Bellinger            ✅
+2021   AL   Vladimir Guerrero Jr.     Shohei Ohtani             ❌
+2021   NL   Fernando Tatis Jr.        Bryce Harper              ❌
+2022   AL   Aaron Judge               Justin Verlander          ❌
+2022   NL   Paul Goldschmidt          Paul Goldschmidt          ✅
+2023   AL   Shohei Ohtani             Shohei Ohtani             ✅
+2023   NL   Ronald Acuna Jr.          Ronald Acuña Jr.          ❌
+
+🎯 Historical Accuracy: 24/46 = 52.2%
+
+
+🔍 Years Where Model Disagreed With Actual MVP:
+
+Year   Lg   Model Pick                Actual MVP                 Model WAR  Winner WAR
+-------------------------------------------------------------------------------------
+2000   AL   Alex Rodriguez            Jason Giambi                     9.5         7.7
+2000   NL   Todd Helton               Jeff Kent                        8.3         7.4
+2001   AL   Jason Giambi              Ichiro Suzuki                    9.2         6.0
+2001   NL   Larry Walker              Barry Bonds                      7.6        12.5
+2002   AL   Alex Rodriguez            Miguel Tejada                   10.0         4.5
+2004   AL   Melvin Mora               Vladimir Guerrero                6.2         N/A
+2006   AL   Lance Berkman             Justin Morneau                   6.1         3.8
+2006   NL   Albert Pujols             Ryan Howard                      8.1         5.9
+2007   NL   David Wright              Jimmy Rollins                    8.4         6.5
+2008   AL   Lance Berkman             Dustin Pedroia                   7.7         6.3
+2011   AL   Jose Bautista             Justin Verlander                 8.1         N/A
+2011   NL   Matt Kemp                 Ryan Braun                       8.3         7.1
+2012   AL   Mike Trout                Miguel Cabrera                  10.1         7.3
+2012   NL   Ryan Braun                Buster Posey                     6.8         9.8
+2014   NL   Giancarlo Stanton         Clayton Kershaw                  6.8         N/A
+2015   AL   Mike Trout                Josh Donaldson                   9.3         8.7
+2017   AL   Aaron Judge               José Altuve                      8.7         N/A
+2019   AL   Alex Bregman              Mike Trout                       8.3         7.6
+2021   AL   Vladimir Guerrero Jr.     Shohei Ohtani                    6.3         5.0
+2021   NL   Fernando Tatis Jr.        Bryce Harper                     6.8         6.7
+2022   AL   Aaron Judge               Justin Verlander                11.1         N/A
+2023   NL   Ronald Acuna Jr.          Ronald Acuña Jr.                 9.2         N/A
+
+=================================================================
+  📋 FINAL SUMMARY REPORT
+=================================================================
+
+  ▸ Data range:       2000–2023 (training)  |  2024 (prediction)
+  ▸ Training samples: 4,456
+  ▸ Features used:    32
+  ▸ Best model:       Gradient Boosting
+  ▸ CV R²:            0.9261
+  ▸ Test MAE:         0.0408
+  ▸ Historical accuracy: 24/46 (52.2%)
+
+  🏆 2024 PREDICTED MVP WINNERS
+     AL: Juan Soto  (100.0% predicted share)
+     NL: Shohei Ohtani  (100.0% predicted share)
+
+  📁 Saved charts: eda_overview.png | model_comparison.png
+               feature_importance.png | shap_summary.png | predictions.png
+
+=================================================================
